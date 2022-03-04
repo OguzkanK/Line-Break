@@ -376,12 +376,17 @@
           </e>
         </e>
         <e p="Scripts" t="Include">
-          <e p="ConnectToServer.cs" t="Include" />
-          <e p="CreateAndJoinRooms.cs" t="Include" />
           <e p="GameSceneCheck.cs" t="Include" />
-          <e p="MainMenu.cs" t="Include" />
-          <e p="Managers" t="Include">
-            <e p="SoundManager.cs" t="Include" />
+          <e p="LoadingScene" t="Include">
+            <e p="ConnectToServer.cs" t="Include" />
+          </e>
+          <e p="LobbyScene" t="Include">
+            <e p="CreateAndJoinRooms.cs" t="Include" />
+            <e p="DisconnectFromServer.cs" t="Include" />
+          </e>
+          <e p="MainMenu" t="Include">
+            <e p="MainMenu.cs" t="Include" />
+            <e p="OptionsManager.cs" t="Include" />
           </e>
           <e p="PlayerMovement.cs" t="Include" />
           <e p="SpawnPlayers.cs" t="Include" />
