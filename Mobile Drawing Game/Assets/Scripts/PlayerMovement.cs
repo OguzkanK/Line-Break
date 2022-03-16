@@ -5,21 +5,23 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private PhotonView view;
-    void Start()
+    // Create photon view to differentiate input between clients
+    private PhotonView _view;
+
+    private void Start()
     {
-        view = GetComponent<PhotonView>();
+        _view = GetComponent<PhotonView>();
     }
 
-    void Update()
+    private void Update()
     {
-        if (Input.GetButtonDown("Fire1") && view.IsMine)
+        if (Input.GetButtonDown("Fire1") && _view.IsMine) // Mouse input for testing
         {
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mousePosition.z = 0;
             transform.position = mousePosition;
         }
-        else if (Input.touchCount > 0 && view.IsMine)
+        else if (Input.touchCount > 0 && _view.IsMine) // Touch input
         {
             Touch touch = Input.GetTouch(0);
             Vector3 touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
