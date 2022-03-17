@@ -20,49 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="016546ad-9b82-42a3-b045-25ffe9b9a362" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Mobile Drawing Game/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Mobile Drawing Game/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Mobile Drawing Game/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Mobile Drawing Game/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Mobile Drawing Game/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Mobile Drawing Game/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon/PhotonChat/Code/PhotonChat.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Photon/PhotonChat/Code/PhotonChat.asmdef" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon/PhotonLibs/Metro.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Photon/PhotonLibs/Metro.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon/PhotonLibs/Metro/Photon3Unity3D.dll.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Photon/PhotonLibs/Metro/Photon3Unity3D.dll.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon/PhotonLibs/Metro/Photon3Unity3D.pri.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Photon/PhotonLibs/Metro/Photon3Unity3D.pri.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon/PhotonLibs/Photon3Unity3D.dll.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Photon/PhotonLibs/Photon3Unity3D.dll.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon/PhotonLibs/Photon3Unity3D.xml.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Photon/PhotonLibs/Photon3Unity3D.xml.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon/PhotonLibs/WebSocket.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon/PhotonLibs/WebSocket/WebSocket.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Photon/PhotonLibs/WebSocket/WebSocket.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon/PhotonLibs/WebSocket/WebSocket.jslib.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Photon/PhotonLibs/WebSocket/WebSocket.jslib.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon/PhotonLibs/WebSocket/websocket-sharp.README.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Photon/PhotonLibs/WebSocket/websocket-sharp.README.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon/PhotonLibs/WebSocket/websocket-sharp.dll.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Photon/PhotonLibs/WebSocket/websocket-sharp.dll.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon/PhotonLibs/changes-library.txt.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Photon/PhotonLibs/changes-library.txt.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon/PhotonLibs/netstandard2.0.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Photon/PhotonLibs/netstandard2.0.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon/PhotonLibs/netstandard2.0/Photon3Unity3D.deps.json.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Photon/PhotonLibs/netstandard2.0/Photon3Unity3D.deps.json.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon/PhotonLibs/netstandard2.0/Photon3Unity3D.dll.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Photon/PhotonLibs/netstandard2.0/Photon3Unity3D.dll.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon/PhotonLibs/netstandard2.0/Photon3Unity3D.xml.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Photon/PhotonLibs/netstandard2.0/Photon3Unity3D.xml.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon/PhotonUnityNetworking/Demos/DemoHub/Sprites/Gradient.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Photon/PhotonUnityNetworking/Demos/DemoHub/Sprites/Gradient.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon/PhotonUnityNetworking/Demos/DemoHub/Sprites/OutlinedSquaredBox.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Photon/PhotonUnityNetworking/Demos/DemoHub/Sprites/OutlinedSquaredBox.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon/PhotonUnityNetworking/Demos/DemoHub/Sprites/PunIcon-White-129.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Photon/PhotonUnityNetworking/Demos/DemoHub/Sprites/PunIcon-White-129.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon/PhotonUnityNetworking/Demos/DemoHub/Sprites/toHub.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Photon/PhotonUnityNetworking/Demos/DemoHub/Sprites/toHub.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon/PhotonUnityNetworking/Demos/Shared Assets/Skin/DropDown Arrow.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Photon/PhotonUnityNetworking/Demos/Shared Assets/Skin/DropDown Arrow.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon/PhotonUnityNetworking/Demos/Shared Assets/Skin/DropDown CheckMark.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Photon/PhotonUnityNetworking/Demos/Shared Assets/Skin/DropDown CheckMark.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon/PhotonUnityNetworking/Icons/PunIcon-128.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Photon/PhotonUnityNetworking/Icons/PunIcon-128.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon/PhotonUnityNetworking/Icons/PunIconApp128.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Photon/PhotonUnityNetworking/Icons/PunIconApp128.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon/PhotonUnityNetworking/Icons/PunIconApp32.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Photon/PhotonUnityNetworking/Icons/PunIconApp32.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon/PhotonUnityNetworking/Icons/PunIconApp48.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Photon/PhotonUnityNetworking/Icons/PunIconApp48.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon/PhotonUnityNetworking/Icons/PunIconApp512.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Photon/PhotonUnityNetworking/Icons/PunIconApp512.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon/PhotonUnityNetworking/Resources/PhotonServerSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Photon/PhotonUnityNetworking/Resources/PhotonServerSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Player.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/LobbyScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LobbyScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameSceneCheck.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameSceneCheck.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LoadingScene/ConnectToServer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LoadingScene/ConnectToServer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LobbyScene/CreateAndJoinRooms.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LobbyScene/CreateAndJoinRooms.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MainMenu/OptionsManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MainMenu/OptionsManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SpawnPlayers.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SpawnPlayers.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Roboto-Bold SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Resources/Fonts &amp; Materials/Roboto-Bold SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server Build_BurstDebugInformation_DoNotShip/tempburstlibs/armeabi-v7a/lib_burst_generated.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Server Build_BurstDebugInformation_DoNotShip/tempburstlibs/armeabi-v7a/lib_burst_generated.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -146,7 +106,7 @@
       <workItem from="1646306428577" duration="10698000" />
       <workItem from="1646393827479" duration="3100000" />
       <workItem from="1646768632632" duration="740000" />
-      <workItem from="1647418087481" duration="28955000" />
+      <workItem from="1647418087481" duration="29555000" />
     </task>
     <servers />
   </component>
