@@ -74,7 +74,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 200}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 76
+  controlID: 54
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -251,7 +251,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 77
+  controlID: 55
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -277,7 +277,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 8096}
   vertical: 0
-  controlID: 78
+  controlID: 56
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -401,22 +401,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes
+    - Assets/Scripts
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scenes
+  - Assets/Scripts
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\Unity Projects\mobile-drawing-game\Mobile Drawing Game
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 56}
-    m_SelectedIDs: 9a630000
-    m_LastClickedID: 25498
-    m_ExpandedIDs: 000000007e630000966300009c630000a064000000ca9a3bffffff7f
+    m_SelectedIDs: a6630000
+    m_LastClickedID: 25510
+    m_ExpandedIDs: 000000008e63000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -444,7 +444,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000007e630000
+    m_ExpandedIDs: 000000008e630000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -572,9 +572,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
+      m_SelectedIDs: a6630000
       m_LastClickedID: 0
-      m_ExpandedIDs: 86defdffd2defdff56dffdff5cdffdff66dffdff72dffdff7aecfdff6eeefdffbaeefdff82f1fdff8ef1fdffa0f1fdffb0f1fdff2af2fdffd8f5fdfffef8fdff4af9fdff2afcfdff36fcfdff48fcfdff58fcfdff1efdfdffb40bfeff5e0ffeff8010feffcc10feff9413feffa013feffb213feffc613feff0a16feff6417feffa819feff1e1cfeff9e1efeff3820feffb626feffae28feffd62cfeff1c33feffdc34feff4a35feffb435feffa439feff583dfeff903efeffa641feff0042feff5a42feffb442feffce44feffc64efeff7854feffde56feff006dfeff086dfeff0c6dfeff0e6dfeff2870fefffc7cfeffb27dfeffd2a4feff1ea5fefff4a7fefffca7feff0aa8feff16a8feff12a9fefff8aafeff76aefeff52affeffacb4feff4cb7feffdcb9feffb2bafeff02c1feff14ccfeff20ccfeff18e8feff9cedfeff7aeffeffc6effeff90f2feff9cf2feffaef2feffc2f2feff6af3feff8013ffffdc13ffff2e15ffff7a15ffffbe15ffffc415ffffce15ffffda15ffff721dffffbe1dffff9020ffff9820ffffa620ffffb220ffff9e28ffff7829fffff22bffff3c2dffffde2fffff2233ffff7835ffff0c37ffffc037ffff4e38ffff363dffff9c46ffffe846ffffc249ffffce49ffffe249fffff249ffff084bffffcac8ffffdac8ffffb8d5ffff7cecffff26edffff2cedfffff2f4ffffc0f9ffff0cfbffff006400003a640000c6aa0000b8af0000c2af00002eb0000046b00000b0b00000bab0000026b100003eb10000eeb70000f8b7000024b800002ab8000064b800007cb80000fad4000050d5000098d50000d4d500000ed6000044e00000e0ea0000eaea000060eb000078eb00002c0001003e410100804801003449010082490100944b01003a4c0100c256010076570100c457010052670100646701006e670100786701008267010022680100426801005a680100726801005c6b0100666b0100706b0100526c01006a6c0100c4750100ce750100d8750100ba760100d27601006891010072910100c49101006e920100169f01001ca00100
+      m_ExpandedIDs: 24f9ffff0cfbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
