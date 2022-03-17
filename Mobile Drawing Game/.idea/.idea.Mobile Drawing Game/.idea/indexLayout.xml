@@ -32,6 +32,7 @@
       <Path>Logs</Path>
       <Path>Menu Build_BurstDebugInformation_DoNotShip</Path>
       <Path>Server Build_BurstDebugInformation_DoNotShip</Path>
+      <Path>Temp</Path>
       <Path>UserSettings</Path>
       <Path>obj</Path>
     </explicitExcludes>
