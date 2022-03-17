@@ -50,7 +50,9 @@
               <e p="Photon3Unity3D.xml" t="Include" />
             </e>
             <e p="Photon3Unity3D.xml" t="Include" />
+            <e p="release_history.txt" t="Include" />
             <e p="WebSocket" t="Include">
+              <e p="PhotonWebSocket.asmdef" t="Include" />
               <e p="SocketWebTcp.cs" t="Include" />
               <e p="WebSocket.cs" t="Include" />
             </e>
@@ -376,13 +378,20 @@
           </e>
         </e>
         <e p="Scripts" t="Include">
-          <e p="ConnectToServer.cs" t="Include" />
-          <e p="CreateAndJoinRooms.cs" t="Include" />
           <e p="GameSceneCheck.cs" t="Include" />
-          <e p="MainMenu.cs" t="Include" />
-          <e p="Managers" t="Include">
-            <e p="SoundManager.cs" t="Include" />
+          <e p="LoadingScene" t="Include">
+            <e p="ConnectToServer.cs" t="Include" />
           </e>
+          <e p="LobbyScene" t="Include">
+            <e p="CreateAndJoinRooms.cs" t="Include" />
+            <e p="DisconnectFromServer.cs" t="Include" />
+          </e>
+          <e p="MainMenu" t="Include">
+            <e p="MainMenu.cs" t="Include" />
+            <e p="OptionsManager.cs" t="Include" />
+          </e>
+          <e p="MessagingManager.cs" t="Include" />
+          <e p="PlayerListManager.cs" t="Include" />
           <e p="PlayerMovement.cs" t="Include" />
           <e p="SpawnPlayers.cs" t="Include" />
           <e p="WordGenerator.cs" t="Include" />
@@ -475,6 +484,7 @@
       <e p="PhotonUnityNetworking.Utilities.csproj" t="IncludeRecursive" />
       <e p="PhotonUnityNetworking.Utilities.Culling.Editor.csproj" t="IncludeRecursive" />
       <e p="PhotonUnityNetworking.Utilities.PhotonPlayer.Editor.csproj" t="IncludeRecursive" />
+      <e p="PhotonWebSocket.csproj" t="IncludeRecursive" />
       <e p="PunDemos.DemoHubEditor.csproj" t="IncludeRecursive" />
       <e p="PunDemos.DemoSlotcarEditor.csproj" t="IncludeRecursive" />
       <e p="Temp\Bin" t="ExcludeRecursive" />
