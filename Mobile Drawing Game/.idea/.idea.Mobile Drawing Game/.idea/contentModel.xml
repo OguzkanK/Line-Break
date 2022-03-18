@@ -378,6 +378,8 @@
           </e>
         </e>
         <e p="Scripts" t="Include">
+          <e p="DrawingWalls.cs" t="Include" />
+          <e p="DrawManager.cs" t="Include" />
           <e p="GameSceneCheck.cs" t="Include" />
           <e p="LoadingScene" t="Include">
             <e p="ConnectToServer.cs" t="Include" />
