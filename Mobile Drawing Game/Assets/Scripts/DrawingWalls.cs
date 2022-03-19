@@ -1,26 +1,22 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class DrawingWalls : MonoBehaviour
 {
     public DrawManager drawManager;
 
-    private void OnMouseDown()
+    private void OnMouseDown() // Call function when input starts within the collider
     {
         drawManager.SetIsMouseInWalls(true);
     }
 
-    private void OnMouseExit()
+    private void OnMouseExit() // Call function when input escapes the collider
     {
         drawManager.SetIsMouseInWalls(false);
     }
 
-    private void OnMouseUp()
+    private void OnMouseUp() // Call functions when input stops
     {
-        drawManager.AddLineToList("length");
+        drawManager.AddLineToList();
         drawManager.SetIsMouseInWalls(false);
     }
 }
