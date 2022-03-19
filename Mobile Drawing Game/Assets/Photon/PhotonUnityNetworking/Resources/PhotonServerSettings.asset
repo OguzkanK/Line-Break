@@ -43,6 +43,11 @@ MonoBehaviour:
   - Chime
   - AddToTheList
   - InstantiateWithRPC
+  - Draw
+  - CreateBrush
+  - SyncInkBarValue
+  - SyncCreatedLine
+  - SyncInkBar
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1

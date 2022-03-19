@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using Photon.Pun;
+using UnityEngine.Serialization;
 
 public class MessagingManager : MonoBehaviour
 {
@@ -12,22 +13,21 @@ public class MessagingManager : MonoBehaviour
     public GameObject chatPanel, textObject; // Area where messages appear, message text prefab
     public Color playerMessageColor, infoColor; // Colors for message types
     
-    private PhotonView _view; // Photon view
+    [SerializeField] private PhotonView view; // Photon view
     
     [SerializeField]
     List<Message> messageList = new List<Message>(); // List of current max amount of messages
     private void Start()
     {
-        _view = GetComponent<PhotonView>();
         username = PhotonNetwork.NickName; // Get Nickname from Photon Network
         // User arrived message
-        _view.RPC("SendMessageToChat", RpcTarget.AllBuffered, username + " Joined!", Message.MessageType.Info);
+        view.RPC("SendMessageToChat", RpcTarget.AllBuffered, username + " Joined!", Message.MessageType.Info);
     }
 
     public void SendButton() // Function for to call RPC method with the send button
     {
         if (chatInput.text == "") return;
-        _view.RPC("SendMessageToChat", RpcTarget.AllBuffered, username + ": " + chatInput.text, Message.MessageType.PlayerMessage);
+        view.RPC("SendMessageToChat", RpcTarget.AllBuffered, username + ": " + chatInput.text, Message.MessageType.PlayerMessage);
         // Reset input field after sending the message
         chatInput.text = "";
     }
