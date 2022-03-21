@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Photon.Pun;
+using Photon.Realtime;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -8,10 +9,10 @@ public class PlayerListManager : MonoBehaviour
 {
     public GameObject listPanel, textObject;
     
+    [SerializeField] private List<Player> playerList = new List<Player>();
     [SerializeField] private PhotonView view;
     private bool _isHost;
     
-    [SerializeField] private List<Player> playerList = new List<Player>();
 
     private void Start()
     {

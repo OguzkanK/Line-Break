@@ -382,6 +382,7 @@
             <e p="ConfirmButton.cs" t="Include" />
             <e p="DrawingWalls.cs" t="Include" />
             <e p="DrawManager.cs" t="Include" />
+            <e p="TurnManager.cs" t="Include" />
           </e>
           <e p="LoadingScene" t="Include">
             <e p="ConnectToServer.cs" t="Include" />
@@ -401,8 +402,8 @@
             <e p="SceneLoader.cs" t="Include" />
             <e p="SpawnPlayers.cs" t="Include" />
           </e>
-          <e p="WordGenerator.cs" t="Include" />
           <e p="WordLibrary.cs" t="Include" />
+          <e p="WordRandomizer.cs" t="Include" />
         </e>
         <e p="TextMesh Pro" t="Include">
           <e p="Examples &amp; Extras" t="Include">

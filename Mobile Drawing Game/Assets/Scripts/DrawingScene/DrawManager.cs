@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Photon.Pun;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Slider = UnityEngine.UI.Slider;
 
 public class DrawManager : MonoBehaviour
@@ -14,7 +15,8 @@ public class DrawManager : MonoBehaviour
     public ConfirmButton confirmButton;
     public List<GameObject> strokesInState; // All the strokes created in one turn
     public List<float> lengthInState; // Lengths of the strokes created in one turn
-    
+    public TurnManager turnManager;
+
     private LineRenderer _currentLineRenderer; // LineRenderer for the last created brush instance
     private Color _materialColor = Color.black; // Color selected for materials created from the prefab, defaults to black
     private Vector2 _lastPos; // Position of the last point created by the lineRenderer
@@ -24,7 +26,7 @@ public class DrawManager : MonoBehaviour
     
     private void Update()
     {
-        if(!_confirmState && inkBar.value > 0){ // Calls Draw function if the game is not in confirmation state and inkBar still has value larger than 0
+        if(!_confirmState && inkBar.value > 0 && turnManager.isMyTurn && turnManager.isDrawer){ // Calls Draw function if the game is not in confirmation state and inkBar still has value larger than 0
             Draw();
         }// end if
     }// end Update
@@ -62,7 +64,7 @@ public class DrawManager : MonoBehaviour
 
     public void ClearLastLine() // Clear function for the clear button
     {
-        if (!strokesInState.Any()|| lengthInState.Any()) return; // Return if either strokesInState or lengthInState are empty
+        if (!strokesInState.Any() || !lengthInState.Any()) return; // Return if either strokesInState or lengthInState are empty
         
         Destroy(strokesInState.Last()); // Destroy the last object in the strokes list
         strokesInState.RemoveAt(strokesInState.Count - 1); // Remove the destroyed object from the list
