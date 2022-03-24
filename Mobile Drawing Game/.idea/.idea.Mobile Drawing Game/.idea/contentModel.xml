@@ -378,24 +378,35 @@
           </e>
         </e>
         <e p="Scripts" t="Include">
-          <e p="GameSceneCheck.cs" t="Include" />
+          <e p="DrawingScene" t="Include">
+            <e p="ConfirmButton.cs" t="Include" />
+            <e p="DrawingSceneLoader.cs" t="Include" />
+            <e p="DrawingWalls.cs" t="Include" />
+            <e p="DrawManager.cs" t="Include" />
+            <e p="GuessManager.cs" t="Include" />
+            <e p="TurnManager.cs" t="Include" />
+          </e>
           <e p="LoadingScene" t="Include">
             <e p="ConnectToServer.cs" t="Include" />
           </e>
           <e p="LobbyScene" t="Include">
             <e p="CreateAndJoinRooms.cs" t="Include" />
             <e p="DisconnectFromServer.cs" t="Include" />
+            <e p="DynamicTextSizer.cs" t="Include" />
           </e>
           <e p="MainMenu" t="Include">
             <e p="MainMenu.cs" t="Include" />
             <e p="OptionsManager.cs" t="Include" />
           </e>
-          <e p="MessagingManager.cs" t="Include" />
-          <e p="PlayerListManager.cs" t="Include" />
-          <e p="PlayerMovement.cs" t="Include" />
-          <e p="SpawnPlayers.cs" t="Include" />
-          <e p="WordGenerator.cs" t="Include" />
+          <e p="RoomScene" t="Include">
+            <e p="MessagingManager.cs" t="Include" />
+            <e p="PlayerListManager.cs" t="Include" />
+            <e p="PlayerMovement.cs" t="Include" />
+            <e p="RoomSceneLoader.cs" t="Include" />
+            <e p="SpawnPlayers.cs" t="Include" />
+          </e>
           <e p="WordLibrary.cs" t="Include" />
+          <e p="WordRandomizer.cs" t="Include" />
         </e>
         <e p="TextMesh Pro" t="Include">
           <e p="Examples &amp; Extras" t="Include">

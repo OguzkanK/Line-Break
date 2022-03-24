@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using Photon.Pun;
+using UnityEngine.Serialization;
 
 public class MessagingManager : MonoBehaviour
 {
@@ -10,24 +11,29 @@ public class MessagingManager : MonoBehaviour
     public int maxMessages = 10; // Max number of messages
     public TMP_InputField chatInput; // Chat input field
     public GameObject chatPanel, textObject; // Area where messages appear, message text prefab
+    public TMP_Text placeholderText, inputText;
     public Color playerMessageColor, infoColor; // Colors for message types
     
-    private PhotonView _view; // Photon view
+    [SerializeField] private PhotonView view; // Photon view
     
+    private float _changeSizeFontTo = Screen.height / 40;
     [SerializeField]
     List<Message> messageList = new List<Message>(); // List of current max amount of messages
+    
     private void Start()
     {
-        _view = GetComponent<PhotonView>();
+        chatInput.characterLimit = 75;
+        placeholderText.fontSize = _changeSizeFontTo;
+        inputText.fontSize = _changeSizeFontTo;
         username = PhotonNetwork.NickName; // Get Nickname from Photon Network
         // User arrived message
-        _view.RPC("SendMessageToChat", RpcTarget.AllBuffered, username + " Joined!", Message.MessageType.Info);
+        view.RPC("SendMessageToChat", RpcTarget.AllBuffered, username + " Joined!", Message.MessageType.Info);
     }
 
     public void SendButton() // Function for to call RPC method with the send button
     {
         if (chatInput.text == "") return;
-        _view.RPC("SendMessageToChat", RpcTarget.AllBuffered, username + ": " + chatInput.text, Message.MessageType.PlayerMessage);
+        view.RPC("SendMessageToChat", RpcTarget.AllBuffered, username + ": " + chatInput.text, Message.MessageType.PlayerMessage);
         // Reset input field after sending the message
         chatInput.text = "";
     }
@@ -37,7 +43,7 @@ public class MessagingManager : MonoBehaviour
     {
         if(messageList.Count >= maxMessages) // Destroy last message if the max amount is reached
         {
-            Destroy(messageList[0].textObject.gameObject);
+            Destroy(messageList[0].messageTextObject.gameObject);
             messageList.Remove(messageList[0]);
         }
         
@@ -47,9 +53,10 @@ public class MessagingManager : MonoBehaviour
         // Instantiate the text prefab under content
         var newText = Instantiate(textObject, chatPanel.transform);
             
-        newMessage.textObject = newText.GetComponent<TMP_Text>();
-        newMessage.textObject.text = newMessage.text;
-        newMessage.textObject.color = MessageTypeColor(messageType);
+        newMessage.messageTextObject = newText.GetComponent<TMP_Text>();
+        newMessage.messageTextObject.text = newMessage.text;
+        newMessage.messageTextObject.fontSize = _changeSizeFontTo;
+        newMessage.messageTextObject.color = MessageTypeColor(messageType);
         
         // Add the message to the list
         messageList.Add(newMessage);
@@ -71,7 +78,7 @@ public class MessagingManager : MonoBehaviour
 public class Message // Message class
 {
     public string text;
-    public TMP_Text textObject;
+    public TMP_Text messageTextObject;
     public MessageType messageType;
     
     public enum MessageType
