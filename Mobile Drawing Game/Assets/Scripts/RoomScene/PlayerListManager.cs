@@ -30,6 +30,7 @@ public class PlayerListManager : MonoBehaviour
             
         player.textObject = newText.GetComponent<TMP_Text>();
         player.textObject.text = player.id + " - " + player.username;
+        player.textObject.fontSize = (Screen.height / 20);
         player.textObject.color = PlayerColor(player.playerType);
         
         playerList.Add(player);

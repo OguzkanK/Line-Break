@@ -9,7 +9,7 @@ using UnityEngine;
 using Hashtable = ExitGames.Client.Photon.Hashtable;
 using Random = UnityEngine.Random;
 
-public class SceneLoader : MonoBehaviour
+public class RoomSceneLoader : MonoBehaviour
 {
     public Room CurrentRoom;
     private void Start()

@@ -13,7 +13,7 @@ public class TurnManager : MonoBehaviour
     public int currentTurn;
     public int[] drawersArray = new int[2];
     public Room CurrentRoom;
-    public GameObject confirmButton, clearButton, inkBar, colors;
+    public GameObject drawerUI, guesserUI;
 
     private void Start()
     {
@@ -46,7 +46,7 @@ public class TurnManager : MonoBehaviour
             Debug.Log($"increment loop: {id}");
         }
         isMyTurn = false;
-        ToggleUI(false);
+        ToggleUI(false, "drawer");
         int nextDrawer = Array.IndexOf(drawersArray, currentTurn) + 1 == drawersArray.Length
             ? 0
             : Array.IndexOf(drawersArray, currentTurn) + 1;
@@ -63,7 +63,7 @@ public class TurnManager : MonoBehaviour
         {
             Debug.Log("My Turn.");
             isMyTurn = true;
-            ToggleUI(true);
+            ToggleUI(true, "drawer");
         }
     }
 
@@ -73,21 +73,28 @@ public class TurnManager : MonoBehaviour
         foreach(int drawerId in drawersArray)
         {
             Debug.Log($"DrawerID for the current state of the loop: {drawerId}");
-            if (PhotonNetwork.LocalPlayer.ActorNumber == drawerId)
-            {
-                isDrawer = true;
-                IsMyTurnCheck();
-                break;
-            }
+            if (PhotonNetwork.LocalPlayer.ActorNumber != drawerId) continue;
+            isDrawer = true;
+            IsMyTurnCheck();
+            break;
+        }
+        if(!isDrawer)
+        {
+            ToggleUI(true, "guesser");
         }
     }
 
-    private void ToggleUI(bool toggleTo)
+    private void ToggleUI(bool toggleTo, string playerType)
     {
         Debug.Log($"Set UI to {toggleTo}");
-        confirmButton.SetActive(toggleTo);
-        clearButton.SetActive(toggleTo);
-        inkBar.SetActive(toggleTo);
-        colors.SetActive(toggleTo);
+        switch (playerType)
+        {
+            case "drawer":
+                drawerUI.SetActive(toggleTo);
+                break;
+            case "guesser":
+                guesserUI.SetActive(toggleTo);
+                break;
+        }
     }
 }

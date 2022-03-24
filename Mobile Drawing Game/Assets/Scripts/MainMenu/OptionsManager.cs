@@ -8,8 +8,12 @@ public class OptionsManager : MonoBehaviour
     [SerializeField] private TMP_InputField newUsername; // New username input in options
     [SerializeField] private TMP_Text playerUsername; // Current username from PlayerPrefs
 
+    public TMP_Text newUsernameInput;
+    private float _changeSizeFontTo = Screen.height / 40;
     private void Start()
     {
+        newUsernameInput.fontSize = _changeSizeFontTo;
+        newUsername.characterLimit = 10;
         // If PlayerPrefs musicVolume is null default to 1
         if (!PlayerPrefs.HasKey("musicVolume"))
         {

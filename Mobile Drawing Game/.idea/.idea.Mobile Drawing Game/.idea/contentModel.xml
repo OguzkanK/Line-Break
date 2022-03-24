@@ -380,8 +380,10 @@
         <e p="Scripts" t="Include">
           <e p="DrawingScene" t="Include">
             <e p="ConfirmButton.cs" t="Include" />
+            <e p="DrawingSceneLoader.cs" t="Include" />
             <e p="DrawingWalls.cs" t="Include" />
             <e p="DrawManager.cs" t="Include" />
+            <e p="GuessManager.cs" t="Include" />
             <e p="TurnManager.cs" t="Include" />
           </e>
           <e p="LoadingScene" t="Include">
@@ -390,6 +392,7 @@
           <e p="LobbyScene" t="Include">
             <e p="CreateAndJoinRooms.cs" t="Include" />
             <e p="DisconnectFromServer.cs" t="Include" />
+            <e p="DynamicTextSizer.cs" t="Include" />
           </e>
           <e p="MainMenu" t="Include">
             <e p="MainMenu.cs" t="Include" />
@@ -399,7 +402,7 @@
             <e p="MessagingManager.cs" t="Include" />
             <e p="PlayerListManager.cs" t="Include" />
             <e p="PlayerMovement.cs" t="Include" />
-            <e p="SceneLoader.cs" t="Include" />
+            <e p="RoomSceneLoader.cs" t="Include" />
             <e p="SpawnPlayers.cs" t="Include" />
           </e>
           <e p="WordLibrary.cs" t="Include" />

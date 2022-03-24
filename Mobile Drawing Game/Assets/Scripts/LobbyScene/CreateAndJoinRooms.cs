@@ -1,3 +1,4 @@
+using System;
 using ExitGames.Client.Photon;
 using UnityEngine;
 using Photon.Pun;
@@ -11,12 +12,18 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
     public TMP_InputField CreateInput; // Create room name input field
     public TMP_InputField JoinInput; // Join room name input field
 
+    private void Start()
+    {
+        CreateInput.characterLimit = 10;
+        JoinInput.characterLimit = 10;
+    }
+
     public void CreateRoom() // Use CreateRoom method from PhotonNetwork to create a room, set the user to host
     {
         _customProperties.Add("Drawers", new int[]{});
         _customProperties.Add("CurrentTurn", 0);
         _roomOptions.CustomRoomProperties = _customProperties;
-        _roomOptions.MaxPlayers = 2;
+        _roomOptions.MaxPlayers = 6;
         _roomOptions.PlayerTtl = 300;
         _roomOptions.EmptyRoomTtl = 300;
         PhotonNetwork.CreateRoom(CreateInput.text, _roomOptions);
