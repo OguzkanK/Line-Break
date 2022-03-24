@@ -4,16 +4,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
+
 public class WordLibrary
 {
-    public List<List<String>> CategoriesList = new List<List<String>>()
+    public List<List<string>> GetCategoriesList()
+    {
+        return CategoriesList;
+    }
+    
+    private List<List<string>> CategoriesList = new List<List<string>>()
     {
         AnimalsList,
         VehiclesList,
-        FlagsList
+        //FlagsList,
+        ProfessionsList,
+        FruitsAndVeggiesList,
+        FurnituresList
     };
     
-    private static readonly List<String> AnimalsList = new List<String>()
+    private static readonly List<string> AnimalsList = new List<string>()
     {
         "Turtle",
         "Lion",
@@ -26,11 +35,13 @@ public class WordLibrary
         "Zebra",
         "Rhinoceros",
         "Snake",
-        "Macaw"
+        "Macaw",
+        "Deer",
+        "Goose"
         
     };
     
-    private static readonly List<String> VehiclesList = new List<String>()
+    private static readonly List<string> VehiclesList = new List<string>()
     {
         "Car",
         "Bicycle",
@@ -46,7 +57,7 @@ public class WordLibrary
         "Rowboat"
     };
     
-    private static readonly List<String> FlagsList = new List<String>()
+    private static readonly List<string> FlagsList = new List<string>()
     {
         "Canada",
         "Argentina",
@@ -59,6 +70,54 @@ public class WordLibrary
         "Turkey",
         "Greece",
         "Bulgaria",
-        "Hungary"
+        "Hungary",
+        "India"
+    };
+    
+    private static readonly List<string> ProfessionsList = new List<string>()
+    {
+        "Pilot",
+        "Babysitter",
+        "Baker",
+        "Engineer",
+        "Cashier",
+        "Dentist",
+        "Electrician",
+        "Barber",
+        "Cook",
+        "Farmer",
+        "Photographer",
+        "Artist"
+    };
+    
+    private static readonly List<string> FruitsAndVeggiesList = new List<string>()
+    {
+        "Banana",
+        "Cucumber",
+        "Eggplant",
+        "Lemon",
+        "Watermelon",
+        "Pineapple",
+        "Pepper",
+        "Pomegranate",
+        "Spinach",
+        "Onion",
+        "Coconut",
+        "Tomato",
+        "Carrot"
+    };
+    
+    private static readonly List<string> FurnituresList = new List<string>()
+    {
+        "Couch",
+        "Bed",
+        "Chair",
+        "Grandfather Clock",
+        "Mirror",
+        "Table",
+        "Television",
+        "Carpet",
+        "Cradle",
+        "Bookcase"
     };
 }
