@@ -118,13 +118,13 @@ Library: lib_burst_generated
 --compilation-defines=PUN_2_0_OR_NEWER
 --compilation-defines=PUN_2_OR_NEWER
 --compilation-defines=PUN_2_19_OR_NEWER
---compilation-defines=CSHARP_7_OR_LATER
---compilation-defines=CSHARP_7_3_OR_NEWER
 --compilation-defines=PACKAGE_PHYSICS
 --compilation-defines=PACKAGE_PHYSICS2D
 --compilation-defines=PACKAGE_TILEMAP
 --compilation-defines=PACKAGE_ANIMATION
 --compilation-defines=PACKAGE_UITOOLKIT
+--compilation-defines=CSHARP_7_OR_LATER
+--compilation-defines=CSHARP_7_3_OR_NEWER
 --compilation-defines=MODULE_AI_EXISTS
 --compilation-defines=MODULE_ANIMATION_EXISTS
 --compilation-defines=MODULE_PHYSICS_EXISTS
@@ -135,8 +135,8 @@ Library: lib_burst_generated
 --compilation-defines=ENABLE_SPRITESHAPE_BURST
 --debug=Full
 --output=D:\Unity Projects\mobile-drawing-game\Mobile Drawing Game\Temp\StagingArea\tempburstlibs\armeabi-v7a\lib_burst_generated
---root-assembly=D:\Unity Projects\mobile-drawing-game\Mobile Drawing Game\Temp\StagingArea\Data\Managed\Assembly-CSharp.dll
 --root-assembly=D:\Unity Projects\mobile-drawing-game\Mobile Drawing Game\Temp\StagingArea\Data\Managed\UnityEngine.UI.dll
+--root-assembly=D:\Unity Projects\mobile-drawing-game\Mobile Drawing Game\Temp\StagingArea\Data\Managed\Assembly-CSharp.dll
 --root-assembly=D:\Unity Projects\mobile-drawing-game\Mobile Drawing Game\Temp\StagingArea\Data\Managed\Unity.VisualScripting.Flow.dll
 --root-assembly=D:\Unity Projects\mobile-drawing-game\Mobile Drawing Game\Temp\StagingArea\Data\Managed\Unity.Mathematics.dll
 --root-assembly=D:\Unity Projects\mobile-drawing-game\Mobile Drawing Game\Temp\StagingArea\Data\Managed\Unity.VisualScripting.State.dll
