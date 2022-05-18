@@ -29,6 +29,7 @@
     <explicitExcludes>
       <Path>.idea</Path>
       <Path>Drawing Build_BurstDebugInformation_DoNotShip</Path>
+      <Path>Drawing Screen Update_BurstDebugInformation_DoNotShip</Path>
       <Path>Library</Path>
       <Path>Logs</Path>
       <Path>Main Branch Build_BurstDebugInformation_DoNotShip</Path>

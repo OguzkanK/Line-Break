@@ -9,10 +9,10 @@ public class ConfirmButton : MonoBehaviour
     public GameObject brush, brushStrokes;
     public Material brushMaterial;
     public DrawManager drawManager;
-    public void ConfirmLastState(List<GameObject> strokesInState, int currentRenderQueue) // Confirm function for the confirm button
+    public void ConfirmLastState(List<GameObject> strokesInState, int currentRenderQueue, List<float> thicknessesOfStrokes) // Confirm function for the confirm button
     {
         float[] rgbValuesFromSource = new float[4];
-        
+        int index = 0;
         foreach (GameObject stroke in strokesInState)
         {
             LineRenderer lineRendererFromSource = stroke.GetComponent<LineRenderer>();
@@ -25,17 +25,21 @@ public class ConfirmButton : MonoBehaviour
             rgbValuesFromSource[3] = materialColor.a * 255f;
             
             view.RPC("SyncCreatedLine", RpcTarget.OthersBuffered, stroke.transform.position, positionsFromSource,
-                rgbValuesFromSource[0], rgbValuesFromSource[1], rgbValuesFromSource[2], rgbValuesFromSource[3], currentRenderQueue);   
+                rgbValuesFromSource[0], rgbValuesFromSource[1], rgbValuesFromSource[2], rgbValuesFromSource[3], currentRenderQueue,
+                thicknessesOfStrokes[index]);
+            index++;
         }
     }// End ConfirmLastState
     
     [PunRPC]
-    public void SyncCreatedLine(Vector3 sourcePosition, Vector3[] positionsFromSource, float r, float g, float b, float a, int renderQueueFromSource)
+    public void SyncCreatedLine(Vector3 sourcePosition, Vector3[] positionsFromSource, float r, float g, float b, float a,
+                                int renderQueueFromSource, float thicknessesOfStrokes)
     {
         GameObject brushInstance = Instantiate(brush, brushStrokes.transform);
         Material materialInstance = Instantiate(brushMaterial, brushInstance.transform);
         LineRenderer lineRendererToCopy = brushInstance.GetComponent<LineRenderer>();
         lineRendererToCopy.positionCount -= 2;
+        lineRendererToCopy.widthMultiplier = thicknessesOfStrokes;
         
         materialInstance.color = new Color32(Convert.ToByte(r), Convert.ToByte(g), Convert.ToByte(b), Convert.ToByte(a));
         materialInstance.renderQueue = renderQueueFromSource;
