@@ -20,7 +20,7 @@ public class WordRandomizer : MonoBehaviour
         }
     }
 
-    private void GenerateWord()
+    public void GenerateWord()
     {
         // List<String> selectedWordList = new List<string>();
         List<string> selectedCategory = GETWordList();

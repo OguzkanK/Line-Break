@@ -54,6 +54,13 @@ MonoBehaviour:
   - PrepareSelectedWordDisplay
   - SendGuess
   - GuessedRight
+  - TeamCheck
+  - SetTeams
+  - RestartScene
+  - StartNextRound
+  - reserScores
+  - resetScores
+  - setScores
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1

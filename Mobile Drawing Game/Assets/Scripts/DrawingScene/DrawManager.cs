@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Photon.Pun;
+using Photon.Realtime;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
@@ -9,6 +10,8 @@ using Slider = UnityEngine.UI.Slider;
 
 public class DrawManager : MonoBehaviour
 {
+    public PhotonView view;
+    public Room CurrentRoom;
     public Outline smallOutline, regularOutline, largeOutline; // Outlines of the thickness buttons
     public GameObject regularButton, largeButton; // Thickness buttons
     public Camera mainCamera; // Main camera
@@ -17,6 +20,7 @@ public class DrawManager : MonoBehaviour
     public Slider inkBar; // inkBar slider
     public ConfirmButton confirmButton;
     public List<GameObject> strokesInState; // All the strokes created in one turn
+    public List<float> thicknessesOfStrokes;
     public List<float> lengthInState; // Lengths of the strokes created in one turn
     public TurnManager turnManager; // Script used for track the turns
 
@@ -28,6 +32,9 @@ public class DrawManager : MonoBehaviour
     private float _lastLineLength; // Length of the last line created
     private bool _confirmState, _isMouseInWalls; // Bool to check if the game is in the confirmation state and to check if input happens within collider
     
+    private void Start(){
+        CurrentRoom = PhotonNetwork.CurrentRoom;
+    }
     private void Update()
     {
         if(!_confirmState && inkBar.value > 0 && turnManager.isMyTurn && turnManager.isDrawer){ // Calls Draw function if the game is not in confirmation state and inkBar still has value larger than 0
@@ -72,6 +79,7 @@ public class DrawManager : MonoBehaviour
         
         Destroy(strokesInState.Last()); // Destroy the last object in the strokes list
         strokesInState.RemoveAt(strokesInState.Count - 1); // Remove the destroyed object from the list
+        thicknessesOfStrokes.RemoveAt(thicknessesOfStrokes.Count - 1);
         inkBar.value += lengthInState.Last(); // Add the length of the deleted line back to the bar
         lengthInState.RemoveAt(lengthInState.Count - 1); // Remove the length added back to the bar
         _confirmState = false; // Resolve confirm state
@@ -90,7 +98,8 @@ public class DrawManager : MonoBehaviour
     {
         if(PhotonNetwork.IsConnected)
         {
-            confirmButton.ConfirmLastState(strokesInState, _currentRenderQueue);
+            // add line thickness list
+            confirmButton.ConfirmLastState(strokesInState, _currentRenderQueue, thicknessesOfStrokes);
         }
         ResetGameState();
     } // End ConfirmButtonHandler
@@ -98,6 +107,7 @@ public class DrawManager : MonoBehaviour
     private void ResetGameState()
     {
         strokesInState.Clear(); // Clear strokes list
+        thicknessesOfStrokes.Clear();
         lengthInState.Clear(); // Clear lengths list
         _confirmState = false; // Resolve confirm state
         _lastLineLength = 0f; // Reset _lastLineLength value
@@ -120,6 +130,7 @@ public class DrawManager : MonoBehaviour
     private void AddStrokeToList(GameObject strokeInput)
     { 
         strokesInState.Add(strokeInput);
+        thicknessesOfStrokes.Add(_lineThickness);
     }// End AddStrokeToList
     
     public void AddLineToList()

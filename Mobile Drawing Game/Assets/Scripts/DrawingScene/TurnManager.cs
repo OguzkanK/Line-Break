@@ -2,12 +2,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine.Serialization;
 
 public class TurnManager : MonoBehaviour
 {
+    public TMP_Text TeamNameDrawer, TeamNameGuesser;
+    public string currentTeam;
     public bool isMyTurn, isDrawer;
     public PhotonView view;
     public int currentTurn;
@@ -15,13 +18,20 @@ public class TurnManager : MonoBehaviour
     public Room CurrentRoom;
     public GameObject drawerUI, guesserUI;
 
-    private void Start()
+    private void Start(){
+        Initialize(true);
+    }
+    public void Initialize(bool fromStart)
     {
         if (PhotonNetwork.LocalPlayer.IsMasterClient)
         {
             CurrentRoom = PhotonNetwork.CurrentRoom;
             view.RPC("SyncRoomProperties", RpcTarget.OthersBuffered, 
                 (int[]) CurrentRoom.CustomProperties["Drawers"], (int) CurrentRoom.CustomProperties["CurrentTurn"]);
+            if(fromStart)
+            {
+                view.RPC("TeamCheck", RpcTarget.AllBuffered,  (int[]) CurrentRoom.CustomProperties["TeamA"]);
+            }
             drawersArray = (int[]) CurrentRoom.CustomProperties["Drawers"];
             currentTurn = (int) CurrentRoom.CustomProperties["CurrentTurn"];
             Debug.Log($"Drawers array: {drawersArray[0]}, {drawersArray[1]}\n" +
@@ -37,6 +47,18 @@ public class TurnManager : MonoBehaviour
             drawersArray = drawersUpdated;
         if (currentTurnUpdated != -1)
             currentTurn = currentTurnUpdated;
+    }
+
+    [PunRPC]
+    public void TeamCheck(int[] TeamA = null)
+    {
+        if (TeamA != null)
+            if(TeamA.Contains(PhotonNetwork.LocalPlayer.ActorNumber)){
+             currentTeam = "A";
+            }
+            else{
+             currentTeam = "B";
+            }
     }
 
     public void IncrementTurn()
@@ -61,7 +83,6 @@ public class TurnManager : MonoBehaviour
     {
         if (PhotonNetwork.LocalPlayer.ActorNumber == currentTurn)
         {
-            Debug.Log("My Turn.");
             isMyTurn = true;
             ToggleUI(true, "drawer");
         }
@@ -72,7 +93,6 @@ public class TurnManager : MonoBehaviour
     {
         foreach(int drawerId in drawersArray)
         {
-            Debug.Log($"DrawerID for the current state of the loop: {drawerId}");
             if (PhotonNetwork.LocalPlayer.ActorNumber != drawerId) continue;
             isDrawer = true;
             IsMyTurnCheck();
@@ -81,12 +101,21 @@ public class TurnManager : MonoBehaviour
         if(!isDrawer)
         {
             ToggleUI(true, "guesser");
+            if(currentTeam.Equals("A"))
+                TeamNameGuesser.text = $"Team A";
+            else
+                TeamNameGuesser.text = $"Team B";
+        }
+        else{
+            if(currentTeam.Equals("A"))
+                TeamNameDrawer.text = $"Team A";
+            else
+                TeamNameDrawer.text = $"Team B";
         }
     }
 
     private void ToggleUI(bool toggleTo, string playerType)
     {
-        Debug.Log($"Set UI to {toggleTo}");
         switch (playerType)
         {
             case "drawer":

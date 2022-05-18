@@ -3,13 +3,16 @@ using Photon.Pun;
 using Photon.Realtime;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Serialization;
 
 public class PlayerListManager : MonoBehaviour
 {
-    public GameObject listPanel, textObject;
-    
-    [SerializeField] private List<Player> playerList = new List<Player>();
+    public GameObject listPanel, textObject, gameSettingsButton;
+    public Button startGameButton;
+    public TeamManager teamManager;
+    public TMP_Text startButtonText;
+    public List<Player> playerList = new List<Player>();
     [SerializeField] private PhotonView view;
     private bool _isHost;
     
@@ -34,6 +37,23 @@ public class PlayerListManager : MonoBehaviour
         player.textObject.color = PlayerColor(player.playerType);
         
         playerList.Add(player);
+
+        if(PhotonNetwork.LocalPlayer.IsMasterClient && playerList.Count == 4){
+            Debug.Log("in if");
+            string[] playerNames = new string[4];
+            int[] playerIDsInput = new int[4];
+            int i = 0;
+            foreach(Player playerInstance in playerList){
+                Debug.Log($"Player Name: {playerInstance.username}, Player ID: {playerInstance.id}");
+                playerNames[i] = playerInstance.username;
+                playerIDsInput[i] = playerInstance.id;
+                i++;
+            }
+            startButtonText.color = new Color32(1, 152, 0, 255); // Green
+            gameSettingsButton.SetActive(true);
+            startGameButton.interactable = true;
+            teamManager.SetPlayers(playerNames, playerIDsInput);
+        }
     }
     
     private Color PlayerColor(Player.PlayerType playerType)

@@ -16,7 +16,7 @@ public class WordLibrary
     {
         AnimalsList,
         VehiclesList,
-        //FlagsList,
+        FlagsList,
         ProfessionsList,
         FruitsAndVeggiesList,
         FurnituresList

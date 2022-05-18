@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Photon.Pun;
+using Photon.Realtime;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -12,22 +13,31 @@ public class GuessManager : MonoBehaviour
     // Limit the input to 10 characters
     // Make the input field ignore space key (also the other input fields)
     
-    public TMP_Text guessPlaceholder, guessInputText, selectedWord, winnerName;
+    public TMP_Text guessPlaceholder, guessInputText, selectedWord, winnerName, teamAScoreText, teamBScoreText;
     public TMP_InputField guessInputField;
     public PhotonView view;
+    public Room CurrentRoom;
+    public string currentTeam;
     public int maxGuesses = 10;
+    public int teamAScore, teamBScore;
     public GameObject guessPanel, textObject, 
-        gameUI, endingUI, goBackToRoom; // Area where guesses appear, guess text prefab
+        gameUI, endingUI, goBackToRoom, startNextRound; // Area where guesses appear, guess text prefab
     public TurnManager turnManager;
     private float _changeSizeFontTo = Screen.height / 40;
     private string _username;
     private List<GuessMessage> _guessList = new List<GuessMessage>();
     void Start()
     {
+        CurrentRoom = PhotonNetwork.CurrentRoom;
         guessInputField.characterLimit = 75;
         _username = PlayerPrefs.GetString("playerUsername");
         guessPlaceholder.fontSize = _changeSizeFontTo;
         guessInputText.fontSize = _changeSizeFontTo;
+        if (PhotonNetwork.LocalPlayer.IsMasterClient)
+        {
+            view.RPC("TeamCheck", RpcTarget.AllBuffered,  (int[]) CurrentRoom.CustomProperties["TeamA"]);
+            view.RPC("setScores", RpcTarget.AllBuffered, (int) CurrentRoom.CustomProperties["TeamAScore"], (int) CurrentRoom.CustomProperties["TeamBScore"]);
+        }
     }
     
     public void SendButton() // Function for to call RPC method with the send button
@@ -35,7 +45,7 @@ public class GuessManager : MonoBehaviour
         if (guessInputField.text == "") return;
         if (guessInputField.text.Equals(selectedWord.text, StringComparison.OrdinalIgnoreCase))
         {
-            view.RPC("GuessedRight", RpcTarget.AllBuffered, PhotonNetwork.NickName);
+            view.RPC("GuessedRight", RpcTarget.AllBuffered, currentTeam, PhotonNetwork.LocalPlayer.ActorNumber);
         }
         else
         {
@@ -46,15 +56,44 @@ public class GuessManager : MonoBehaviour
     }
 
     [PunRPC]
-    public void GuessedRight(string winningPlayer)
+    public void TeamCheck(int[] TeamA = null)
+    {
+        if (TeamA != null)
+            if(TeamA.Contains(PhotonNetwork.LocalPlayer.ActorNumber)){
+             currentTeam = "A";
+            }
+            else{
+             currentTeam = "B";
+            }
+    }
+
+    [PunRPC]
+    public void GuessedRight(string winningTeam, int winningPlayerId)
     {
         // Make the game enter the win state, let every player see the stat screen. only the host can make everyone continue.
         // Give points to whoever guessed, and drawers
         // Return to room scene
-        Debug.Log(winningPlayer);
+        Debug.Log($"Team A Score Property Before: {CurrentRoom.CustomProperties["TeamAScore"]}, \nTeam B Score Before: {CurrentRoom.CustomProperties["TeamBScore"]}");
+        if(winningTeam.Equals("A")){
+            teamAScore = teamAScore + 1;
+            CurrentRoom.CustomProperties["TeamAScore"] = teamAScore;
+            winnerName.text = $"Team A";
+            Debug.Log($"Team A score: {teamAScore} \nTeam B score: {teamBScore}");
+        }
+        else{
+            teamBScore = teamBScore + 1;
+            CurrentRoom.CustomProperties["TeamBScore"] = teamBScore;
+            winnerName.text = $"Team B";
+            Debug.Log($"Team A score: {teamAScore} \nTeam B score: {teamBScore}");
+        }
+        
+        Debug.Log($"Team A Score Property After: {CurrentRoom.CustomProperties["TeamAScore"]}, \nTeam B Score After: {CurrentRoom.CustomProperties["TeamBScore"]}");
+        
+        teamAScoreText.text = $"Team A: {teamAScore}";
+        teamBScoreText.text = $"Team B: {teamBScore}";
         gameUI.SetActive(false);
         endingUI.SetActive(true);
-        winnerName.text = winningPlayer;
+        //winnerName.text = winningPlayer;
         if (turnManager.isDrawer)
         {
             turnManager.isDrawer = false;
@@ -63,6 +102,7 @@ public class GuessManager : MonoBehaviour
         if (PhotonNetwork.IsMasterClient)
         {
             goBackToRoom.SetActive(true);
+            startNextRound.SetActive(true);
         }
     }
     
@@ -87,6 +127,12 @@ public class GuessManager : MonoBehaviour
         
         // Add the message to the list
         _guessList.Add(newGuess);
+    }
+
+    [PunRPC]
+    public void setScores(int teamAScoreProperty, int teamBScoreProperty){
+        teamAScore = teamAScoreProperty;
+        teamBScore = teamBScoreProperty;
     }
 }
 
