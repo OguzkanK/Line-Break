@@ -20,15 +20,17 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
 
     public void CreateRoom() // Use CreateRoom method from PhotonNetwork to create a room, set the user to host
     {
-        _customProperties.Add("Drawers", new int[]{});
-        _customProperties.Add("TeamA", new int[]{});
-        _customProperties.Add("TeamB", new int[]{});
+        if (CreateInput.text.Length < 4) return;
+        
+        _customProperties.Add("Drawers", new int[] { });
+        _customProperties.Add("TeamA", new int[] { });
+        _customProperties.Add("TeamB", new int[] { });
         _customProperties.Add("TeamAScore", 0);
         _customProperties.Add("TeamBScore", 0);
         _customProperties.Add("CurrentTurn", 0);
         _roomOptions.CustomRoomProperties = _customProperties;
         _roomOptions.MaxPlayers = 4;
-        
+
         _roomOptions.PlayerTtl = 300;
         _roomOptions.EmptyRoomTtl = 300;
         PhotonNetwork.CreateRoom(CreateInput.text, _roomOptions);

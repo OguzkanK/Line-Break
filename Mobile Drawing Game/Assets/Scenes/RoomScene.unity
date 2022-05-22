@@ -4335,6 +4335,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 175964841261999439, guid: 1046a857d13589a498a89c7f0d355e6f, type: 3}
   spawnPlayersTransform: {fileID: 953310270}
+  lobbyName: {fileID: 144814937}
 --- !u!4 &953310270
 Transform:
   m_ObjectHideFlags: 0
