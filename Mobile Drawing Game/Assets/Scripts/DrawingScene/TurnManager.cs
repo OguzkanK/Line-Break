@@ -23,21 +23,20 @@ public class TurnManager : MonoBehaviour
     }
     public void Initialize(bool fromStart)
     {
-        if (PhotonNetwork.LocalPlayer.IsMasterClient)
+        if (!PhotonNetwork.LocalPlayer.IsMasterClient) return;
+        
+        CurrentRoom = PhotonNetwork.CurrentRoom;
+        view.RPC("SyncRoomProperties", RpcTarget.OthersBuffered, 
+            (int[]) CurrentRoom.CustomProperties["Drawers"], (int) CurrentRoom.CustomProperties["CurrentTurn"]);
+        if(fromStart)
         {
-            CurrentRoom = PhotonNetwork.CurrentRoom;
-            view.RPC("SyncRoomProperties", RpcTarget.OthersBuffered, 
-                (int[]) CurrentRoom.CustomProperties["Drawers"], (int) CurrentRoom.CustomProperties["CurrentTurn"]);
-            if(fromStart)
-            {
-                view.RPC("TeamCheck", RpcTarget.AllBuffered,  (int[]) CurrentRoom.CustomProperties["TeamA"]);
-            }
-            drawersArray = (int[]) CurrentRoom.CustomProperties["Drawers"];
-            currentTurn = (int) CurrentRoom.CustomProperties["CurrentTurn"];
-            Debug.Log($"Drawers array: {drawersArray[0]}, {drawersArray[1]}\n" +
-                      $"Current turn value: {CurrentRoom.CustomProperties["CurrentTurn"]}");
-            view.RPC("IsDrawerCheck", RpcTarget.AllBuffered);
+            view.RPC("TeamCheck", RpcTarget.AllBuffered,  (int[]) CurrentRoom.CustomProperties["TeamA"]);
         }
+            
+        drawersArray = (int[]) CurrentRoom.CustomProperties["Drawers"];
+        currentTurn = (int) CurrentRoom.CustomProperties["CurrentTurn"];
+            
+        view.RPC("IsDrawerCheck", RpcTarget.AllBuffered);
     }
 
     [PunRPC]
@@ -63,17 +62,12 @@ public class TurnManager : MonoBehaviour
 
     public void IncrementTurn()
     {
-        foreach (var id in drawersArray)
-        {
-            Debug.Log($"increment loop: {id}");
-        }
         isMyTurn = false;
         ToggleUI(false, "drawer");
         int nextDrawer = Array.IndexOf(drawersArray, currentTurn) + 1 == drawersArray.Length
             ? 0
             : Array.IndexOf(drawersArray, currentTurn) + 1;
         currentTurn = drawersArray[nextDrawer];
-        Debug.Log($"Turn changed to {currentTurn} at index: {nextDrawer}");
         view.RPC("SyncRoomProperties", RpcTarget.OthersBuffered, null, currentTurn);
         view.RPC("IsMyTurnCheck", RpcTarget.OthersBuffered);
     }

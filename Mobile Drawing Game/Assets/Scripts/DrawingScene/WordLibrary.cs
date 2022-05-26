@@ -37,8 +37,8 @@ public class WordLibrary
         "Snake",
         "Macaw",
         "Deer",
-        "Goose"
-        
+        "Goose",
+        "Rabbit"
     };
     
     private static readonly List<string> VehiclesList = new List<string>()

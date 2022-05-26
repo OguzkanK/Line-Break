@@ -9,8 +9,8 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
 {
     private Hashtable _customProperties = new Hashtable();
     private Photon.Realtime.RoomOptions _roomOptions = new Photon.Realtime.RoomOptions(); 
-    public TMP_InputField CreateInput; // Create room name input field
-    public TMP_InputField JoinInput; // Join room name input field
+    public TMP_InputField CreateInput; 
+    public TMP_InputField JoinInput;
 
     private void Start()
     {
@@ -18,7 +18,7 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
         JoinInput.characterLimit = 10;
     }
 
-    public void CreateRoom() // Use CreateRoom method from PhotonNetwork to create a room, set the user to host
+    public void CreateRoom()
     {
         if (CreateInput.text.Length < 4) return;
         
@@ -36,13 +36,13 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
         PhotonNetwork.CreateRoom(CreateInput.text, _roomOptions);
     }
 
-    public void JoinRoom()// Use JoinRoom method from PhotonNetwork to join a room, set the user to joined
+    public void JoinRoom()
     {
         Debug.Log(JoinInput.text);
         PhotonNetwork.JoinRoom(JoinInput.text);
     }
 
-    public override void OnJoinedRoom() // Callback function, automatically called when you join a room
+    public override void OnJoinedRoom()
     {
         PhotonNetwork.LoadLevel("RoomScene");
     }

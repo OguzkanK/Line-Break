@@ -8,17 +8,16 @@ public class ConnectToServer : MonoBehaviourPunCallbacks
 {
     void Start()
     {
-        // Connect to the server
         PhotonNetwork.ConnectUsingSettings();
         PhotonNetwork.NickName = PlayerPrefs.GetString("playerUsername");
     }
 
-    public override void OnConnectedToMaster() // Callback function, automatically called when you connect to the server
+    public override void OnConnectedToMaster() 
     {
         PhotonNetwork.JoinLobby();
     }
 
-    public override void OnJoinedLobby() // Callback function, automatically called when you join the lobby
+    public override void OnJoinedLobby()
     {
         SceneManager.LoadScene("LobbyScene");
     }

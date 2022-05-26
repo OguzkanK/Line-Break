@@ -7,13 +7,12 @@ using TMPro;
 
 public class SpawnPlayers : MonoBehaviour
 {
-    public GameObject playerPrefab; // Player prefab
-    public Transform spawnPlayersTransform; // Spawn point
-    public TMP_Text lobbyName; // Lobby name UI element
+    public GameObject playerPrefab;
+    public Transform spawnPlayersTransform;
+    public TMP_Text lobbyName;
 
     private void Start()
     {
-        // Create and set spawn position based on number of players
         Vector2 spawnPosition;
         var position = spawnPlayersTransform.position;
         

@@ -29,7 +29,7 @@ public class ConfirmButton : MonoBehaviour
                 thicknessesOfStrokes[index]);
             index++;
         }
-    }// End ConfirmLastState
+    }
     
     [PunRPC]
     public void SyncCreatedLine(Vector3 sourcePosition, Vector3[] positionsFromSource, float r, float g, float b, float a,

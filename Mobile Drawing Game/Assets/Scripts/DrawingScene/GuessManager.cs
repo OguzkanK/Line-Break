@@ -9,10 +9,6 @@ using UnityEngine;
 
 public class GuessManager : MonoBehaviour
 {
-    // TODO:
-    // Limit the input to 10 characters
-    // Make the input field ignore space key (also the other input fields)
-    
     public TMP_Text guessPlaceholder, guessInputText, selectedWord, winnerName, teamAScoreText, teamBScoreText;
     public TMP_InputField guessInputField;
     public PhotonView view;
@@ -21,7 +17,7 @@ public class GuessManager : MonoBehaviour
     public int maxGuesses = 10;
     public int teamAScore, teamBScore;
     public GameObject guessPanel, textObject, 
-        gameUI, endingUI, goBackToRoom, startNextRound; // Area where guesses appear, guess text prefab
+        gameUI, endingUI, goBackToRoom, startNextRound; 
     public TurnManager turnManager;
     private float _changeSizeFontTo = Screen.height / 40;
     private string _username;
@@ -40,7 +36,7 @@ public class GuessManager : MonoBehaviour
         }
     }
     
-    public void SendButton() // Function for to call RPC method with the send button
+    public void SendButton()
     {
         if (guessInputField.text == "") return;
         if (guessInputField.text.Equals(selectedWord.text, StringComparison.OrdinalIgnoreCase))
@@ -51,7 +47,6 @@ public class GuessManager : MonoBehaviour
         {
             view.RPC("SendGuess", RpcTarget.AllBuffered, _username + ": " + guessInputField.text);
         }
-        // Reset input field after sending the message
         guessInputField.text = "";
     }
 
@@ -70,24 +65,17 @@ public class GuessManager : MonoBehaviour
     [PunRPC]
     public void GuessedRight(string winningTeam, int winningPlayerId)
     {
-        // Make the game enter the win state, let every player see the stat screen. only the host can make everyone continue.
-        // Give points to whoever guessed, and drawers
-        // Return to room scene
-        Debug.Log($"Team A Score Property Before: {CurrentRoom.CustomProperties["TeamAScore"]}, \nTeam B Score Before: {CurrentRoom.CustomProperties["TeamBScore"]}");
         if(winningTeam.Equals("A")){
             teamAScore = teamAScore + 1;
             CurrentRoom.CustomProperties["TeamAScore"] = teamAScore;
             winnerName.text = $"Team A";
-            Debug.Log($"Team A score: {teamAScore} \nTeam B score: {teamBScore}");
         }
         else{
             teamBScore = teamBScore + 1;
             CurrentRoom.CustomProperties["TeamBScore"] = teamBScore;
             winnerName.text = $"Team B";
-            Debug.Log($"Team A score: {teamAScore} \nTeam B score: {teamBScore}");
         }
         
-        Debug.Log($"Team A Score Property After: {CurrentRoom.CustomProperties["TeamAScore"]}, \nTeam B Score After: {CurrentRoom.CustomProperties["TeamBScore"]}");
         
         teamAScoreText.text = $"Team A: {teamAScore}";
         teamBScoreText.text = $"Team B: {teamBScore}";

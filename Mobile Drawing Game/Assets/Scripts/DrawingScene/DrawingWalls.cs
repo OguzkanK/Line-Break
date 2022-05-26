@@ -15,17 +15,17 @@ public class DrawingWalls : MonoBehaviour
         transformToChange.localScale = new Vector3(dynamicSizingX, dynamicSizingY, 1f);
     }
 
-    private void OnMouseDown() // Call function when input starts within the collider
+    private void OnMouseDown() 
     {
         drawManager.SetIsMouseInWalls(true);
     }
 
-    private void OnMouseExit() // Call function when input escapes the collider
+    private void OnMouseExit()
     {
         drawManager.SetIsMouseInWalls(false);
     }
 
-    private void OnMouseUp() // Call functions when input stops
+    private void OnMouseUp() 
     {
         drawManager.AddLineToList();
         drawManager.SetIsMouseInWalls(false);

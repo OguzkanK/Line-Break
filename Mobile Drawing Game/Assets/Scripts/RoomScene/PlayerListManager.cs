@@ -39,17 +39,15 @@ public class PlayerListManager : MonoBehaviour
         playerList.Add(player);
 
         if(PhotonNetwork.LocalPlayer.IsMasterClient && playerList.Count == 4){
-            Debug.Log("in if");
             string[] playerNames = new string[4];
             int[] playerIDsInput = new int[4];
             int i = 0;
             foreach(Player playerInstance in playerList){
-                Debug.Log($"Player Name: {playerInstance.username}, Player ID: {playerInstance.id}");
                 playerNames[i] = playerInstance.username;
                 playerIDsInput[i] = playerInstance.id;
                 i++;
             }
-            startButtonText.color = new Color32(1, 152, 0, 255); // Green
+            startButtonText.color = new Color32(1, 152, 0, 255);
             gameSettingsButton.SetActive(true);
             startGameButton.interactable = true;
             teamManager.SetPlayers(playerNames, playerIDsInput);

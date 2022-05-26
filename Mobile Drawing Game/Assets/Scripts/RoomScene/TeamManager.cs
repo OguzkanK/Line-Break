@@ -30,12 +30,12 @@ public class TeamManager : MonoBehaviour
                 playerTeamLabels[i].text = playerNames[i];
                 playerIDs[i] = playerIDsInput[i];
             }
-        }
+         }
     }
     public void validityCheck(){
         int NumberOfA = 0, NumberOfB = 0;
         for(int i = 0; i < 4; i++){
-            if(playerTeamSelections[i].value == 0){ // 0 is the selection for team A
+            if(playerTeamSelections[i].value == 0){
                 NumberOfA++;
             }
             else
@@ -45,11 +45,11 @@ public class TeamManager : MonoBehaviour
         }
         if(NumberOfA == 2 && NumberOfB == 2){
             setTeamButton.interactable = true;
-            setTeamText.color = new Color32(217, 151, 34, 255); // Orange
+            setTeamText.color = new Color32(217, 151, 34, 255);
         }
         else{
             setTeamButton.interactable = false;
-            setTeamText.color = new Color32(82, 82, 82, 255); // Grey
+            setTeamText.color = new Color32(82, 82, 82, 255); 
         }
     }
     
@@ -61,7 +61,7 @@ public class TeamManager : MonoBehaviour
         int[] drawers = new int[2];
 
         for(int i = 0; i < 4; i++){
-            if(playerTeamSelections[i].value == 0){ // 0 is the selection for team A
+            if(playerTeamSelections[i].value == 0){
                 if(teamA[0] == -1){
                     teamA[0] = playerIDs[i];
                 }
@@ -70,7 +70,7 @@ public class TeamManager : MonoBehaviour
                 }
             }
             else
-            { // 1 is the selection for team B
+            {
                 if(teamB[0] == -1){
                     teamB[0] = playerIDs[i];
                 }

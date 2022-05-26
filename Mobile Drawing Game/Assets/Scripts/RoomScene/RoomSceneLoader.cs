@@ -61,11 +61,6 @@ public class RoomSceneLoader : MonoBehaviour
 
             
             view.RPC("resetScores", RpcTarget.AllBuffered, (int) CurrentRoom.CustomProperties["TeamAScore"], (int) CurrentRoom.CustomProperties["TeamBScore"]);
-            
-            //CurrentRoom.CustomProperties["TeamAScore"] = TeamAScore;
-            //CurrentRoom.CustomProperties["TeamBScore"] = TeamBScore;
-            
-
             PhotonNetwork.LoadLevel("DrawingScene");
         }  
     }

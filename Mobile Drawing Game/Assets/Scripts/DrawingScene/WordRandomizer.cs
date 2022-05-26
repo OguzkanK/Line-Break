@@ -22,20 +22,7 @@ public class WordRandomizer : MonoBehaviour
 
     public void GenerateWord()
     {
-        // List<String> selectedWordList = new List<string>();
         List<string> selectedCategory = GETWordList();
-        // for(int i = 0; i < 3; i++)
-        // {
-        //     int randomizedIndex = Random.Range(0, selectedCategory.Count - 1);
-        //     selectedWord = selectedCategory[randomizedIndex];
-        //     selectedWordList.Add(selectedCategory[randomizedIndex]);
-        //     selectedCategory.RemoveAt(randomizedIndex);
-        // }
-
-        // foreach (string word in selectedWordList)
-        // {
-        //     Debug.Log(word);
-        // }
         int randomizedIndex = Random.Range(0, selectedCategory.Count - 1);
         view.RPC("PrepareSelectedWordDisplay", RpcTarget.AllBuffered, selectedCategory[randomizedIndex]);
     }

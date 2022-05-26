@@ -7,7 +7,6 @@ public class DynamicTextSizer : MonoBehaviour
 {
     public TMP_Text createPlaceholder, createInput, joinPlaceholder, joinInput; 
     private float changeSizeFontTo = Screen.height / 40;
-    // Start is called before the first frame update
     void Start()
     {
         createPlaceholder.fontSize = changeSizeFontTo;
